@@ -1,6 +1,3 @@
-using Domain.Models;
-using Domain.ValueObjects;
-
 namespace Infrastructure.Data.Extensions;
 
 public static class InitialData
