@@ -1,3 +1,4 @@
+using Application.Dtos;
 using Application.Topics;
 using Domain.Models;
 using Microsoft.AspNetCore.Http;
@@ -11,9 +12,15 @@ namespace API.Controllers
         : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<List<Topic>>> GetTopics()
+        public async Task<ActionResult<List<TopicResponseDto>>> GetTopics()
         {
             return Ok(await topicService.GetTopicsAsync());
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<TopicResponseDto>> GetTopic(Guid id)
+        {
+            return Ok(await topicService.GetTopicAsync(id));
         }
     }
 }

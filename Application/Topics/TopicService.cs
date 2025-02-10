@@ -2,6 +2,7 @@
 using Application.Data.DataBaseContext;
 using Application.Dtos;
 using Application.Extensions;
+using Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -23,7 +24,10 @@ public class TopicService
 
     public async Task<TopicResponseDto> GetTopicAsync(Guid id)
     {
-        throw new NotImplementedException();
+        TopicId topicId = TopicId.Of(id);
+        var result = await dbContext.Topics.FindAsync([topicId]);
+
+        return result.ToTopicResponseDto();
     }
 
     public async Task<List<TopicResponseDto>> GetTopicsAsync()
