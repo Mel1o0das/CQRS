@@ -1,5 +1,7 @@
 
 using Application.Data.DataBaseContext;
+using Application.Dtos;
+using Application.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -9,7 +11,7 @@ public class TopicService
     (IApplicationDbContext dbContext,
      ILogger<TopicService> logger) : ITopicService
 {
-    public Task<Topic> CreateTopicAsync(Topic topicRequestDto)
+    public Task<TopicResponseDto> CreateTopicAsync(Topic topicRequestDto)
     {
         throw new NotImplementedException();
     }
@@ -19,21 +21,21 @@ public class TopicService
         throw new NotImplementedException();
     }
 
-    public async Task<Topic> GetTopicAsync(Guid id)
+    public async Task<TopicResponseDto> GetTopicAsync(Guid id)
     {
         throw new NotImplementedException();
     }
 
-    public async Task<List<Topic>> GetTopicsAsync()
+    public async Task<List<TopicResponseDto>> GetTopicsAsync()
     {
         var topics = await dbContext.Topics
             .AsNoTracking()
             .ToListAsync();
 
-        return topics;
+        return topics.ToTopicResponseDtoList();
     }
 
-    public Task<Topic> UpdateTopicAsync(Guid id, Topic topicRequestDto)
+    public Task<TopicResponseDto> UpdateTopicAsync(Guid id, Topic topicRequestDto)
     {
         throw new NotImplementedException();
     }
