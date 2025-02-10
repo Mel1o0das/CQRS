@@ -1,3 +1,4 @@
+using Application.Data.DataBaseContext;
 using Infrastructure.Data.DataBaseContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +19,8 @@ public static class DependencyEnjection
         {
             options.UseSqlite(connectionString);
         });
+
+        services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
         return services;
     }
