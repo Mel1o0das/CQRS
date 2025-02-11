@@ -1,3 +1,5 @@
+using Api.Exceptions.Handler;
+
 namespace Api;
 
 public static class DependencyEnjection
@@ -7,9 +9,25 @@ public static class DependencyEnjection
         IConfiguration configuration
     )
     {
+        services.AddExceptionHandler<CustomExceptionHandler>();
         services.AddControllers();
         services.AddOpenApi();
 
         return services;
+    }
+
+    public static WebApplication UseApiServices(
+        this WebApplication app
+        )
+    {
+        app.UseExceptionHandler(options => { });
+
+        app.UseHttpsRedirection();
+
+        app.UseAuthorization();
+
+        app.MapControllers();
+
+        return app;
     }
 }

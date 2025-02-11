@@ -1,6 +1,5 @@
 using Application.Data.DataBaseContext;
 using Infrastructure.Data.DataBaseContext;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -23,18 +22,5 @@ public static class DependencyEnjection
         services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
         return services;
-    }
-
-    public static WebApplication UseApiServices(
-        this WebApplication app
-    )
-    {
-        app.UseHttpsRedirection();
-
-        app.UseAuthorization();
-
-        app.MapControllers();
-
-        return app;
     }
 }

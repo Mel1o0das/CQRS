@@ -1,6 +1,6 @@
-
 using Application.Data.DataBaseContext;
 using Application.Dtos;
+using Application.Exceptions;
 using Application.Extensions;
 using Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +14,10 @@ public class TopicService
 {
     public Task<TopicResponseDto> CreateTopicAsync(Topic topicRequestDto)
     {
+        // TopicResponseDto topicResponseDto = new TopicResponseDto(
+
+        // );
+
         throw new NotImplementedException();
     }
 
@@ -26,6 +30,11 @@ public class TopicService
     {
         TopicId topicId = TopicId.Of(id);
         var result = await dbContext.Topics.FindAsync([topicId]);
+
+        if (result == null)
+        {
+            throw new TopicNotFoundException(id);
+        }
 
         return result.ToTopicResponseDto();
     }
