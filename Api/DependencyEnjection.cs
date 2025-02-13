@@ -20,6 +20,11 @@ public static class DependencyEnjection
         this WebApplication app
         )
     {
+        if (app.Environment.IsDevelopment())
+        {
+            app.MapOpenApi();
+        }
+
         app.UseExceptionHandler(options => { });
 
         app.UseHttpsRedirection();
