@@ -12,13 +12,22 @@ public class TopicService
     (IApplicationDbContext dbContext,
      ILogger<TopicService> logger) : ITopicService
 {
-    public Task<TopicResponseDto> CreateTopicAsync(Topic topicRequestDto)
+    public async Task<TopicResponseDto> CreateTopicAsync(CreateTopicDto dto)
     {
-        // TopicResponseDto topicResponseDto = new TopicResponseDto(
+        Topic newTopic = Topic.Create(
+            TopicId.Of(Guid.NewGuid()),
+            dto.Title,
+            dto.EventStart,
+            dto.Summary,
+            dto.TopicType,
+            Location.Of(dto.Location.Sity, dto.Location.Street)
+        );
 
-        // );
+        dbContext.Topics.Add(newTopic);
 
-        throw new NotImplementedException();
+        await dbContext.SaveChangesAsync(CancellationToken.None);
+
+        return newTopic.ToTopicResponseDto();
     }
 
     public Task DeleteTopicAsync(Guid id)
@@ -31,7 +40,7 @@ public class TopicService
         TopicId topicId = TopicId.Of(id);
         var result = await dbContext.Topics.FindAsync([topicId]);
 
-        if (result == null)
+        if (result is null)
         {
             throw new TopicNotFoundException(id);
         }
