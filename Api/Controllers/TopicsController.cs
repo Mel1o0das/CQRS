@@ -26,5 +26,12 @@ namespace API.Controllers
         {
             return Ok(await topicService.CreateTopicAsync(dto));
         }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<TopicResponseDto>> UpdateTopic(Guid id,
+            [FromBody] UpdateTopicDto dto)
+        {
+            return Ok(await topicService.UpdateTopicAsync(id, dto));
+        }
     }
 }
