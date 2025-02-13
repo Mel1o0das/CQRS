@@ -1,6 +1,6 @@
 namespace Application.Dtos;
 
 public record LocationDto(
-    string Sity,
+    string City,
     string Street
 );

@@ -5,5 +5,5 @@ public record CreateTopicDto(
     string Summary,
     string TopicType,
     LocationDto Location,
-    DateTime? EventStart
+    DateTime EventStart
 );

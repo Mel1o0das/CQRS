@@ -20,7 +20,7 @@ public class TopicService
             dto.EventStart,
             dto.Summary,
             dto.TopicType,
-            Location.Of(dto.Location.Sity, dto.Location.Street)
+            Location.Of(dto.Location.City, dto.Location.Street)
         );
 
         dbContext.Topics.Add(newTopic);
