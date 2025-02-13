@@ -33,5 +33,12 @@ namespace API.Controllers
         {
             return Ok(await topicService.UpdateTopicAsync(id, dto));
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<TopicResponseDto>> DeleteTopic(Guid id)
+        {
+            await topicService.DeleteTopicAsync(id);
+            return NoContent();
+        }
     }
 }

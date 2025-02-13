@@ -30,9 +30,18 @@ public class TopicService
         return newTopic.ToTopicResponseDto();
     }
 
-    public Task DeleteTopicAsync(Guid id)
+    public async Task DeleteTopicAsync(Guid id)
     {
-        throw new NotImplementedException();
+        TopicId topicId = TopicId.Of(id);
+        var result = await dbContext.Topics.FindAsync([topicId]);
+
+        if (result is null)
+        {
+            throw new TopicNotFoundException(id);
+        }
+
+        dbContext.Topics.Remove(result);
+        await dbContext.SaveChangesAsync(CancellationToken.None);
     }
 
     public async Task<TopicResponseDto> GetTopicAsync(Guid id)
