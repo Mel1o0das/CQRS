@@ -13,6 +13,16 @@ public static class DependencyEnjection
         services.AddControllers();
         services.AddOpenApi();
 
+        services.AddCors(options =>
+        {
+            options.AddPolicy("react-policy", policy =>
+            {
+                policy.AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .WithOrigins("http://localhost:3000");
+            });
+        });
+
         return services;
     }
 
@@ -20,6 +30,8 @@ public static class DependencyEnjection
         this WebApplication app
         )
     {
+        app.UseCors("react-policy");
+
         if (app.Environment.IsDevelopment())
         {
             app.MapOpenApi();
