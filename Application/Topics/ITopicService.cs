@@ -1,5 +1,3 @@
-using Application.Dtos;
-
 namespace Application.Topics;
 
 public interface ITopicService

@@ -1,8 +1,4 @@
 using Application.Data.DataBaseContext;
-using Application.Dtos;
-using Application.Exceptions;
-using Application.Extensions;
-using Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
