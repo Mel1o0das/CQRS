@@ -34,9 +34,9 @@ namespace API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<TopicResponseDto>> DeleteTopic(Guid id)
+        public async Task<IResult> DeleteTopic(Guid id)
         {
-            return NoContent();
+            return Results.Ok(await mediator.Send(new DeleteTopicQuery(id)));
         }
     }
 }
