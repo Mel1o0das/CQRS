@@ -14,15 +14,16 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<TopicResponseDto>> GetTopic(Guid id)
+        public async Task<IResult> GetTopic(Guid id)
         {
-            return Ok();
+            return Results.Ok(await mediator.Send(new GetTopicQuery(id)));
         }
 
         [HttpPost]
-        public async Task<ActionResult<TopicResponseDto>> CreateTopic(CreateTopicDto dto)
+        public async Task<IResult> CreateTopic(CreateTopicDto dto)
         {
-            return Ok();
+            var response = await mediator.Send(new CreateTopicQuery(dto));
+            return Results.Created($"/topics/{response.Topic.id}", response.Topic);
         }
 
         [HttpPut("{id}")]
