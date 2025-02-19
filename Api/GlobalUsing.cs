@@ -4,3 +4,6 @@ global using Infrastructure.Data.Extensions;
 global using Application.Dtos;
 //global using Application.Topics;
 global using Application.Exceptions;
+
+global using Application.Topics.Queries.GetTopics;
+global using MediatR;

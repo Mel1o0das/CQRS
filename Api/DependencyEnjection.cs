@@ -23,6 +23,10 @@ public static class DependencyEnjection
             });
         });
 
+        services.AddMediatR(config => config
+            .RegisterServicesFromAssembly(typeof(GetTopicsHandler).Assembly)
+        );
+
         return services;
     }
 
