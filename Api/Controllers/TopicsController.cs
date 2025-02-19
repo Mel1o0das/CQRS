@@ -8,9 +8,9 @@ namespace API.Controllers
         : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<List<TopicResponseDto>>> GetTopics()
+        public async Task<IResult> GetTopics()
         {
-            return Ok(await mediator.Send(new GetTopicsQuery()));
+            return Results.Ok(await mediator.Send(new GetTopicsQuery()));
         }
 
         [HttpGet("{id}")]
