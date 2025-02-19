@@ -2,8 +2,9 @@ using Application.Data.DataBaseContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace Application.Topics;
+namespace Application.Topics.Old;
 
+[Obsolete("Устарело", true)]
 public class TopicService
     (IApplicationDbContext dbContext,
      ILogger<TopicService> logger) : ITopicService
