@@ -1,3 +1,4 @@
+using Application.Topics.Commands.UpdateTopicCommand;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -27,10 +28,10 @@ namespace API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<TopicResponseDto>> UpdateTopic(Guid id,
+        public async Task<IResult> UpdateTopic(Guid id,
             [FromBody] UpdateTopicDto dto)
         {
-            return Ok();
+            return Results.Ok(await mediator.Send(new UpdateTopicQuery(id, dto)));
         }
 
         [HttpDelete("{id}")]
