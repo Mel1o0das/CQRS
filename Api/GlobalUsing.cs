@@ -11,3 +11,5 @@ global using MediatR;
 global using Application.Topics.Queries.GetTopic;
 global using Application.Topics.Commands.CreateTopicCommand;
 global using Application.Topics.Commands.DeleteTopicCommand;
+
+global using Application.Mapping;

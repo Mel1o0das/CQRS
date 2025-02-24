@@ -27,6 +27,8 @@ public static class DependencyEnjection
             .RegisterServicesFromAssembly(typeof(GetTopicsHandler).Assembly)
         );
 
+        services.AddAutoMapper(typeof(MappingProfile).Assembly);
+
         return services;
     }
 
