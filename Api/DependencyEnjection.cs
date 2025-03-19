@@ -49,7 +49,7 @@ public static class DependencyEnjection
         app.UseExceptionHandler(options => { });
 
         app.UseHttpsRedirection();
-
+        app.UseAuthentication();
         app.UseAuthorization();
 
         app.MapControllers();
