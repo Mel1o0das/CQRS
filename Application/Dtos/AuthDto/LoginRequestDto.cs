@@ -1,4 +1,4 @@
-namespace Domain.Security.Dtos;
+namespace Application.Dtos.AuthDto;
 
 public record LoginRequestDto(
     string Email,
