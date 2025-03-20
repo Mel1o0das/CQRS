@@ -20,6 +20,7 @@ public static class IdentityOptionExtension
             options.Password.RequiredLength = 1;
             options.Password.RequireUppercase = false;
             options.Password.RequireNonAlphanumeric = false;
+            options.User.RequireUniqueEmail = true;
         })
         .AddEntityFrameworkStores<ApplicationDbContext>();
 
