@@ -1,4 +1,4 @@
-namespace Application.Dtos;
+namespace Application.Dtos.TopicDto;
 
 public record LocationDto(
     string City,

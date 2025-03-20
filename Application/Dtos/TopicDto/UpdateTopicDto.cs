@@ -1,6 +1,6 @@
-namespace Application.Dtos;
+namespace Application.Dtos.TopicDto;
 
-public record CreateTopicDto(
+public record UpdateTopicDto(
     string Title,
     string Summary,
     string TopicType,
