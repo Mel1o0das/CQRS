@@ -1,7 +1,5 @@
-using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using API.Security.Services;
 using Domain.Security;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
@@ -16,9 +14,9 @@ public class JwtSecurityService(IConfiguration configuration) : IJwtSecurityServ
 
         var claims = new List<Claim>()
         {
-            new Claim(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.Sub, user.Id),
-            new Claim(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.Name, user.UserName!),
-            new Claim(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.Email, user.Email!),
+            new Claim(JwtRegisteredClaimNames.Sub, user.Id),
+            new Claim(JwtRegisteredClaimNames.Name, user.UserName!),
+            new Claim(JwtRegisteredClaimNames.Email, user.Email!),
             new Claim("is_premium", "true"),
         };
 

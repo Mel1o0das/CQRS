@@ -1,6 +1,5 @@
 using System.Text;
 using Api.Security.Services;
-using API.Security.Services;
 using Domain.Security;
 using Infrastructure.Data.DataBaseContext;
 using Microsoft.AspNetCore.Authentication.JwtBearer;

@@ -1,4 +1,4 @@
-using API.Security.Services;
+using Api.Security.Services;
 using Domain.Security;
 using Application.Dtos.AuthDto;
 using Microsoft.AspNetCore.Authorization;
