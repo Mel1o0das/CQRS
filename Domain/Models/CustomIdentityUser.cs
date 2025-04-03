@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace Domain.Security;
+namespace Domain.Models;
 
 public class CustomIdentityUser : IdentityUser
 {
