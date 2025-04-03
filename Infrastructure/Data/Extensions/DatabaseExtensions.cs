@@ -1,4 +1,3 @@
-using Domain.Security;
 using Infrastructure.Data.DataBaseContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;

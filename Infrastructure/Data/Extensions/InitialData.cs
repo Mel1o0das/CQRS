@@ -1,5 +1,3 @@
-using Domain.Security;
-
 namespace Infrastructure.Data.Extensions;
 
 public static class InitialData

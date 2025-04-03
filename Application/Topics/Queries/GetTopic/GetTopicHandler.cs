@@ -1,4 +1,3 @@
-
 namespace Application.Topics.Queries.GetTopic;
 
 public class GetTopicHandler(IApplicationDbContext dbContext)
