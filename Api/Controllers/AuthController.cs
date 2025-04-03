@@ -1,42 +1,30 @@
-using Api.Security.Services;
-using Domain.Security;
 using Application.Dtos.AuthDto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Domain.Models;
+using Application.Auth.Queries;
+using Domain.Interfaces;
 
 namespace Api.Controllers;
 
 [AllowAnonymous]
 [ApiController]
 [Route("api/[controller]")]
-public class AuthController(UserManager<CustomIdentityUser> manager, IJwtSecurityService jwtSecurityService)
+public class AuthController(
+    IMediator mediator,
+    UserManager<CustomIdentityUser> manager,
+    IJwtSecurityService jwtSecurityService)
     : ControllerBase
 {
     [HttpPost("login")]
     public async Task<IResult> Login(LoginRequest dto)
     {
-        var user = await manager.FindByEmailAsync(dto.Email);
+        var response = await mediator.Send(new LoginUserQuery(dto));
 
-        if (user is null)
-        {
-            return Results.Unauthorized();
-        }
-
-        var result = await manager.CheckPasswordAsync(user, dto.Password);
-
-        if (result)
-        {
-            var response = new IdentityUserResponceDto(
-                user.UserName!, user.Email!, jwtSecurityService.CreateToken(user)
-            );
-
-            return Results.Ok(new { result = response });
-        }
-
-        return Results.Unauthorized();
+        return Results.Ok(response.Identity);
     }
 
     [HttpPost("register")]
