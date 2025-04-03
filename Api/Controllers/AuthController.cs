@@ -23,8 +23,7 @@ public class AuthController(
     public async Task<IResult> Login(LoginRequest dto)
     {
         var response = await mediator.Send(new LoginUserQuery(dto));
-
-        return Results.Ok(response.Identity);
+        return Results.Ok(new { result = response.Identity });
     }
 
     [HttpPost("register")]

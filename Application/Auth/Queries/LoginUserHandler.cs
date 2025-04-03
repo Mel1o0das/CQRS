@@ -17,7 +17,7 @@ public class LoginUserHandler(
 
         if (user is null)
         {
-            throw new UserNotFoundException(user!.Email!, user!.UserName!);
+            throw new UserNotFoundException(request.dto.Email);
         }
 
         var result = await manager.CheckPasswordAsync(user, request.dto.Password);
@@ -31,6 +31,6 @@ public class LoginUserHandler(
             return new LoginUserResult(response);
         }
 
-        throw new UserNotFoundException(user!.Email!, user!.UserName!);
+        throw new UserNotFoundException(request.dto.Email);
     }
 }
