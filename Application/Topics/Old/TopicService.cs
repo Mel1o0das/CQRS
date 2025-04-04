@@ -4,8 +4,7 @@ namespace Application.Topics.Old;
 
 [Obsolete("Устарело", true)]
 public class TopicService
-    (IApplicationDbContext dbContext,
-     ILogger<TopicService> logger) : ITopicService
+    (IApplicationDbContext dbContext) : ITopicService
 {
     public async Task<TopicResponseDto> CreateTopicAsync(CreateTopicDto dto)
     {
