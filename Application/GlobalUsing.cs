@@ -7,3 +7,8 @@ global using Domain.ValueObjects;
 global using Application.Data.DataBaseContext;
 global using Microsoft.EntityFrameworkCore;
 global using Shared.CQRS;
+
+global using Application.Dtos.AuthDto;
+global using Domain.Interfaces;
+global using Microsoft.AspNetCore.Identity;
+global using AutoMapper;

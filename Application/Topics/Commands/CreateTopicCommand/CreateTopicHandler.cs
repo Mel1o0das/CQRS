@@ -1,5 +1,3 @@
-using AutoMapper;
-
 namespace Application.Topics.Commands.CreateTopicCommand
 {
     public class CreateTopicHandler(IApplicationDbContext dbContext, IMapper mapper)

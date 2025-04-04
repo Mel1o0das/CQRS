@@ -1,4 +1,3 @@
-
 namespace Application.Topics.Commands.DeleteTopicCommand;
 
 public class DeleteCommandHadler(IApplicationDbContext dbContext) :

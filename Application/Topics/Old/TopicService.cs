@@ -1,5 +1,3 @@
-using Application.Data.DataBaseContext;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Application.Topics.Old;

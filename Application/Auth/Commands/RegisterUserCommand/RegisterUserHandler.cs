@@ -1,7 +1,3 @@
-using Application.Dtos.AuthDto;
-using Domain.Interfaces;
-using Microsoft.AspNetCore.Identity;
-
 namespace Application.Auth.Commands.RegisterUserCommand;
 
 public class RegisterUserHandler(
