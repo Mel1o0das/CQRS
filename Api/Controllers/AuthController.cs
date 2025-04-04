@@ -1,12 +1,7 @@
 using Application.Dtos.AuthDto;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.Data;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Domain.Models;
 using Application.Auth.Queries;
-using Domain.Interfaces;
 using Application.Auth.Commands.RegisterUserCommand;
 
 namespace Api.Controllers;

@@ -13,3 +13,9 @@ global using Application.Topics.Commands.CreateTopicCommand;
 global using Application.Topics.Commands.DeleteTopicCommand;
 
 global using Application.Mapping;
+
+global using Microsoft.AspNetCore.Mvc;
+global using Domain.Interfaces;
+global using Domain.Models;
+global using System.Text;
+global using Microsoft.IdentityModel.Tokens;

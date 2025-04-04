@@ -1,5 +1,4 @@
 using Application.Topics.Commands.UpdateTopicCommand;
-using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
