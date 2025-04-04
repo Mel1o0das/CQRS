@@ -14,7 +14,7 @@ public class AuthController(
     : ControllerBase
 {
     [HttpPost("login")]
-    public async Task<IResult> Login(LoginRequest dto)
+    public async Task<IResult> Login(LoginRequestDto dto)
     {
         var response = await mediator.Send(new LoginUserQuery(dto));
         return Results.Ok(new { result = response.Identity });
