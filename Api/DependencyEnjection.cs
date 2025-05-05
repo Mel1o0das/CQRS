@@ -1,5 +1,5 @@
 using Api.Exceptions.Handler;
-using Api.Security.Extensions;
+using Infrastructure.Security.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 
