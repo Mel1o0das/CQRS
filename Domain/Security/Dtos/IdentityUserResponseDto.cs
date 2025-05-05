@@ -1,6 +1,6 @@
 namespace Domain.Security.Dtos;
 
-public record IdentityUserResponceDto(
+public record IdentityUserResponseDto(
     string Username,
     string Email,
     string JwtToken

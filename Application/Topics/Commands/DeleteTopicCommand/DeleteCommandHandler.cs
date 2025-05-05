@@ -1,7 +1,7 @@
 
 namespace Application.Topics.Commands.DeleteTopicCommand;
 
-public class DeleteCommandHadler(IApplicationDbContext dbContext) :
+public class DeleteCommandHandler(IApplicationDbContext dbContext) :
     IQueryHandler<DeleteTopicQuery, DeleteTopicResult>
 {
     public async Task<DeleteTopicResult> Handle(DeleteTopicQuery request,
