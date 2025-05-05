@@ -33,7 +33,7 @@ public class RegisterUserHandler(
 
         if (result.Succeeded)
         {
-            var response = new IdentityUserResponceDto(
+            var response = new IdentityUserResponseDto(
                 user.UserName!, user.Email!, jwtSecurityService.CreateToken(user)
             );
 

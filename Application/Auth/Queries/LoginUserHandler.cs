@@ -24,7 +24,7 @@ public class LoginUserHandler(
 
         if (result)
         {
-            var response = new IdentityUserResponceDto(
+            var response = new IdentityUserResponseDto(
                 user.UserName!, user.Email!, jwtSecurityService.CreateToken(user)
             );
 
