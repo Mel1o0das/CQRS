@@ -11,3 +11,5 @@ global using Shared.CQRS;
 global using Application.Dtos.AuthDto;
 global using Microsoft.AspNetCore.Identity;
 global using AutoMapper;
+
+global using Domain.Interfaces;

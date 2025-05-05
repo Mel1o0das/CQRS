@@ -1,7 +1,3 @@
-
-
-using Domain.Interfaces;
-
 namespace Application.Auth.Queries;
 
 public class LoginUserHandler(

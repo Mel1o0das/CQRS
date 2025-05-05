@@ -1,9 +1,5 @@
 using System.Security.Claims;
-using System.Text;
-using Domain.Interfaces;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.JsonWebTokens;
-using Microsoft.IdentityModel.Tokens;
 
 namespace Infrastructure.Security.Services;
 
