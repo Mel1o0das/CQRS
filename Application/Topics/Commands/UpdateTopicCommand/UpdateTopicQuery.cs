@@ -1,6 +1,6 @@
 namespace Application.Topics.Commands.UpdateTopicCommand;
 
-public record UpdateTopicQuery(Guid id, UpdateTopicDto dto) : IQuery<UpdateTopicResult>;
+public record UpdateTopicCommand(Guid id, UpdateTopicDto dto) : ICommand<UpdateTopicResult>;
 
 public record UpdateTopicResult(TopicResponseDto Topic);
 
