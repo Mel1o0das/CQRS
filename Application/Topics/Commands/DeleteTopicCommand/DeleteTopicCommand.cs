@@ -1,5 +1,5 @@
 namespace Application.Topics.Commands.DeleteTopicCommand;
 
-public record DeleteTopicQuery(Guid id) : IQuery<DeleteTopicResult>;
+public record DeleteTopicCommand(Guid id) : ICommand<DeleteTopicResult>;
 
 public record DeleteTopicResult(bool IsSuccess);

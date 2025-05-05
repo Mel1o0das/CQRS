@@ -1,9 +1,9 @@
 namespace Application.Topics.Commands.DeleteTopicCommand;
 
 public class DeleteCommandHandler(IApplicationDbContext dbContext) :
-    IQueryHandler<DeleteTopicQuery, DeleteTopicResult>
+    ICommandHandler<DeleteTopicCommand, DeleteTopicResult>
 {
-    public async Task<DeleteTopicResult> Handle(DeleteTopicQuery request,
+    public async Task<DeleteTopicResult> Handle(DeleteTopicCommand request,
         CancellationToken cancellationToken)
     {
         TopicId topicId = TopicId.Of(request.id);
