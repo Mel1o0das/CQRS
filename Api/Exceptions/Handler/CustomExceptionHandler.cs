@@ -20,6 +20,11 @@ public class CustomExceptionHandler(
                 exception.GetType().Name,
                 httpContext.Response.StatusCode = StatusCodes.Status404NotFound
             ),
+            RegisterInvalidDataException => (
+                exception.Message,
+                exception.GetType().Name,
+                httpContext.Response.StatusCode = StatusCodes.Status400BadRequest
+            ),
             _ => (
                 exception.Message,
                 exception.GetType().Name,

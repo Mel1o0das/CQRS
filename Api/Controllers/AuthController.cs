@@ -22,16 +22,7 @@ public class AuthController(
     [HttpPost("register")]
     public async Task<IResult> Register(RegisterUserRequestDto dto)
     {
-        try
-        {
-            var response = await mediator.Send(new RegisterUserCommand(dto));
-            return Results.Ok(new { result = response.Identity });
-        }
-        catch (RegisterInvalidDataException ex)
-        {
-            return Results.BadRequest(ex.Message);
-        }
-
-        //return Results.BadRequest(result.Errors);
+        var response = await mediator.Send(new RegisterUserCommand(dto));
+        return Results.Ok(new { result = response.Identity });
     }
 }
