@@ -29,7 +29,7 @@ public class AuthController(UserManager<CustomIdentityUser> manager, IJwtSecurit
 
         if (result)
         {
-            var response = new IdentityUserResponceDto(
+            var response = new IdentityUserResponseDto(
                 user.UserName!, user.Email!, jwtSecurityService.CreateToken(user)
             );
 
@@ -64,7 +64,7 @@ public class AuthController(UserManager<CustomIdentityUser> manager, IJwtSecurit
 
         if (result.Succeeded)
         {
-            var response = new IdentityUserResponceDto(
+            var response = new IdentityUserResponseDto(
                 user.UserName!, user.Email!, jwtSecurityService.CreateToken(user)
             );
 
