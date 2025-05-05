@@ -1,6 +1,6 @@
 namespace Application.Auth.Commands.RegisterUserCommand;
 
-public record RegisterUserQuery(RegisterUserRequestDto dto) : IQuery<RegisterUserResult>;
+public record RegisterUserCommand(RegisterUserRequestDto dto) : ICommand<RegisterUserResult>;
 
 public record RegisterUserResult(IdentityUserResponseDto Identity);
 

@@ -5,10 +5,10 @@ namespace Application.Auth.Commands.RegisterUserCommand;
 public class RegisterUserHandler(
     UserManager<CustomIdentityUser> manager,
     IJwtSecurityService jwtSecurityService)
-    : IQueryHandler<RegisterUserQuery, RegisterUserResult>
+    : ICommandHandler<RegisterUserCommand, RegisterUserResult>
 {
     public async Task<RegisterUserResult> Handle(
-        RegisterUserQuery request,
+        RegisterUserCommand request,
         CancellationToken cancellationToken)
     {
         if (await manager.Users.AnyAsync(u => u.UserName == request.dto.Username))

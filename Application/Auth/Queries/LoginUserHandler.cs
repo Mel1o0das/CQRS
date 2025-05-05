@@ -7,10 +7,10 @@ namespace Application.Auth.Queries;
 public class LoginUserHandler(
     UserManager<CustomIdentityUser> manager,
     IJwtSecurityService jwtSecurityService)
-    : IQueryHandler<LoginUserQuery, LoginUserResult>
+    : ICommandHandler<LoginUserCommand, LoginUserResult>
 {
     public async Task<LoginUserResult> Handle(
-        LoginUserQuery request,
+        LoginUserCommand request,
         CancellationToken cancellationToken)
     {
         var user = await manager.FindByEmailAsync(request.dto.Email);

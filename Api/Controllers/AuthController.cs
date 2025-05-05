@@ -15,7 +15,7 @@ public class AuthController(
     [HttpPost("login")]
     public async Task<IResult> Login(LoginRequestDto dto)
     {
-        var response = await mediator.Send(new LoginUserQuery(dto));
+        var response = await mediator.Send(new LoginUserCommand(dto));
         return Results.Ok(new { result = response.Identity });
     }
 
@@ -24,7 +24,7 @@ public class AuthController(
     {
         try
         {
-            var response = await mediator.Send(new RegisterUserQuery(dto));
+            var response = await mediator.Send(new RegisterUserCommand(dto));
             return Results.Ok(new { result = response.Identity });
         }
         catch (RegisterInvalidDataException ex)
