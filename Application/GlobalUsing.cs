@@ -9,6 +9,5 @@ global using Microsoft.EntityFrameworkCore;
 global using Shared.CQRS;
 
 global using Application.Dtos.AuthDto;
-global using Domain.Interfaces;
 global using Microsoft.AspNetCore.Identity;
 global using AutoMapper;

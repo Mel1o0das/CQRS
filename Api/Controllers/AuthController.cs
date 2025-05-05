@@ -1,6 +1,5 @@
 using Application.Dtos.AuthDto;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity.Data;
 using Application.Auth.Queries;
 using Application.Auth.Commands.RegisterUserCommand;
 
