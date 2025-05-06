@@ -1,6 +1,4 @@
-using Application.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Exceptions.Handler;
 
@@ -21,6 +19,11 @@ public class CustomExceptionHandler(
                 exception.Message,
                 exception.GetType().Name,
                 httpContext.Response.StatusCode = StatusCodes.Status404NotFound
+            ),
+            RegisterInvalidDataException => (
+                exception.Message,
+                exception.GetType().Name,
+                httpContext.Response.StatusCode = StatusCodes.Status400BadRequest
             ),
             _ => (
                 exception.Message,

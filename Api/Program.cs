@@ -11,7 +11,7 @@ builder.Logging.AddConsole();
 builder.Services
     .AddApiServices(builder.Configuration)
     .AddInfrastructureServices(builder.Configuration)
-    .AddApplictionServices(builder.Configuration);
+    .AddApplicationServices(builder.Configuration);
 
 var app = builder.Build();
 

@@ -1,44 +1,42 @@
-using Application.Dtos;
-using Application.Topics;
-using Microsoft.AspNetCore.Mvc;
+using Application.Topics.Commands.UpdateTopicCommand;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TopicsController(ITopicService topicService)
+    public class TopicsController(IMediator mediator)
         : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<List<TopicResponseDto>>> GetTopics()
+        public async Task<IResult> GetTopics()
         {
-            return Ok(await topicService.GetTopicsAsync());
+            return Results.Ok(await mediator.Send(new GetTopicsQuery()));
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<TopicResponseDto>> GetTopic(Guid id)
+        public async Task<IResult> GetTopic(Guid id)
         {
-            return Ok(await topicService.GetTopicAsync(id));
+            return Results.Ok(await mediator.Send(new GetTopicQuery(id)));
         }
 
         [HttpPost]
-        public async Task<ActionResult<TopicResponseDto>> CreateTopic(CreateTopicDto dto)
+        public async Task<IResult> CreateTopic(CreateTopicDto dto)
         {
-            return Ok(await topicService.CreateTopicAsync(dto));
+            var response = await mediator.Send(new CreateTopicCommand(dto));
+            return Results.Created($"/topics/{response.Topic.id}", response.Topic);
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<TopicResponseDto>> UpdateTopic(Guid id,
+        public async Task<IResult> UpdateTopic(Guid id,
             [FromBody] UpdateTopicDto dto)
         {
-            return Ok(await topicService.UpdateTopicAsync(id, dto));
+            return Results.Ok(await mediator.Send(new UpdateTopicCommand(id, dto)));
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<TopicResponseDto>> DeleteTopic(Guid id)
+        public async Task<IResult> DeleteTopic(Guid id)
         {
-            await topicService.DeleteTopicAsync(id);
-            return NoContent();
+            return Results.Ok(await mediator.Send(new DeleteTopicCommand(id)));
         }
     }
 }

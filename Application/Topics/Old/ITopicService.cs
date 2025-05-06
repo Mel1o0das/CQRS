@@ -1,7 +1,6 @@
-using Application.Dtos;
+namespace Application.Topics.Old;
 
-namespace Application.Topics;
-
+[Obsolete("Устарело", true)]
 public interface ITopicService
 {
     Task<List<TopicResponseDto>> GetTopicsAsync();
